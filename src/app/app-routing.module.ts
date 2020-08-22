@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { EcommerceComponent } from "./layouts/ecommerce/ecommerce.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { FilterNavbarLayoutComponent } from './pages/search/pages/filter-navbar-layout/filter-navbar-layout.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
   //   loadChildren: () =>
   //     import("./admin/admin.module").then(mod => mod.AdminModule)
   // },
+  {
+    path: "prueba",
+    component: FilterNavbarLayoutComponent,
+  },
   {
     path: "**",
     component: NotFoundComponent,
