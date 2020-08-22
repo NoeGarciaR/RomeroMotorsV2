@@ -5,6 +5,8 @@ import { Data } from 'src/app/core/models/personalities/SpeedLoad.model';
 import { FormControl, Validators } from "@angular/forms";
 import { environment } from '../../../../environments/environment';
 import { SpeedLoadService } from '../../../core/services/speed-load.service';
+import { ManufacturerService } from '../../../core/services/manufacturer.service';
+import { ManufacturerData } from '../../../core/models/personalities/Manufacturer.model';
 
 @Component({
   selector: "app-tire-item",
@@ -18,9 +20,12 @@ export class TireItemComponent implements OnInit {
   public speedData: Data;
   public loadData: Data;
 
+  public manufacturer: ManufacturerData;
 
   public quantityFormControl: FormControl;
-  constructor( public _speedLoad: SpeedLoadService) {
+  constructor( public _speedLoad: SpeedLoadService,
+               public _manufactures: ManufacturerService
+               ) {
   }
 
   ngOnInit(): void {
@@ -33,9 +38,13 @@ export class TireItemComponent implements OnInit {
         Validators.max(this.tire.stock)
       ]);
       //console.log(this.tire);
-      this.loadData = this.getLoad( this.tire.loadIndexId[0]);
-      this.speedData = this.getSpeed( this.tire.speedIndexId );
-      console.log(this.speedData);
+      /*Obteneido datos de Speed y Load*/
+      this.loadData = this._speedLoad.searchLoadId( this.tire.loadIndexId[0] );//this.getLoad( this.tire.loadIndexId[0]);
+      this.speedData = this._speedLoad.searchSpeedId( this.tire.speedIndexId );//this.getSpeed( this.tire.speedIndexId );
+      //console.log(this.speedData);
+      /*Obteniendo manufacturas*/
+      this._manufactures.getManufactures();
+      this.manufacturer = this._manufactures.getManufacturerId( this.tire.manufacturerId );
     }
   }
 
@@ -58,19 +67,5 @@ export class TireItemComponent implements OnInit {
     } else {
       return true;
     }
-  }
-
-  getLoad( id: string ) {
-    let status: Data;
-    status = this._speedLoad.searchLoadId( id );
-    //console.log(status);
-    return status;
-  }
-
-  getSpeed( id: string ) {
-    let status: Data;
-    status = this._speedLoad.searchSpeedId( id );
-    //console.log(status);
-    return status;
   }
 }
