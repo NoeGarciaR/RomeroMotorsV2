@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { TireService } from "src/app/core/services/tire.service";
-import { Tire } from "../../../../core/models/personalities/Tire.model";
+import { Tire, Data, Doc } from "../../../../core/models/personalities/Tire.model";
 import { makeStateKey, TransferState } from "@angular/platform-browser";
 
 const TIRES_SEARCH = makeStateKey("TIRES_SEARCH");
@@ -12,7 +12,7 @@ const TIRES_SEARCH = makeStateKey("TIRES_SEARCH");
   styleUrls: ["./result-search-tire.component.scss"],
 })
 export class ResultSearchTireComponent implements OnInit, OnDestroy {
-  public tires: Tire;
+  public tires = null;
   public queryParams: any = {};
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -23,7 +23,9 @@ export class ResultSearchTireComponent implements OnInit, OnDestroy {
     this.queryParams = this._activatedRoute.snapshot.queryParams;
 
     if (this.tires === null) {
-      this._tireService.getTireOption(this.queryParams).subscribe( (res) => {
+      this._tireService.getTireOption(this.queryParams).subscribe( ( res: Tire ) => {
+        console.log('Estoy en subscribe');
+        //this.tires = res;
         console.log(res);
       });
       /*this._tireService.get(this.queryParams).subscribe((res) => {
@@ -31,6 +33,7 @@ export class ResultSearchTireComponent implements OnInit, OnDestroy {
         this._transferState.set(TIRES_SEARCH, res);
         // console.log(res);
       });*/
+      console.log(this.tires);
     }
 /*
     this.queryParams = this._activatedRoute.snapshot.queryParams;
@@ -54,7 +57,7 @@ export class ResultSearchTireComponent implements OnInit, OnDestroy {
       //console.log('TIRE ', res);
       this.options = res;
       //this.tires = res;
-      //this._transferState.set(TIRES_SEARCH, res);
+        //this._transferState.set(TIRES_SEARCH, res);
     });
   }
 }

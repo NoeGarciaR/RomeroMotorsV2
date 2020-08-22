@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Tire } from "../models/personalities/Tire.model";
 
@@ -20,20 +20,28 @@ export class TireService {
       .pipe(map((res: any) => res.data));
   }
 
-  public getTireOption<Tire>( options: any ) {
-    console.log(options);
-    let options_path = {
+  public getTireOption( options: any ) {
+    const headers = new HttpHeaders({
+      limit: '8',
+      page: '1',
+      widthId: options.width,
+      ratioId: options.ratio,
+      diameterId : options.diameter
+    });
+
+/*
+    const options_path = {
       limit: 8,
       page: 1,
       widthId: options.width,
       ratioId: options.ratio,
       diameterId : options.diameter
     };
-
-    return this._http.get(`${this.URL_TIRE}`, { options_path })
+  */
+    return this._http.get(this.URL_TIRE, { headers } )
       .pipe(
-        map( (resp) => {
-          return resp;
+        map( (res ) => {
+          return res;
         } )
       );
   }
