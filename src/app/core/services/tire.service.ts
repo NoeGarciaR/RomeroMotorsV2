@@ -28,19 +28,9 @@ export class TireService {
       ratioId: options.ratio,
       diameterId : options.diameter
     });
-
-/*
-    const options_path = {
-      limit: 8,
-      page: 1,
-      widthId: options.width,
-      ratioId: options.ratio,
-      diameterId : options.diameter
-    };
-  */
     return this._http.get(this.URL_TIRE, { headers } )
       .pipe(
-        map( (res ) => {
+        map( (res: Tire ) => {
           return res;
         } )
       );

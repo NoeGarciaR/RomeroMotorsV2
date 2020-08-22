@@ -17,8 +17,8 @@
     </div>
     <div class="TireCard__content">
       <div class="col-left">
-        <h6 class="manufacturer">{{ tire.manufacturer.value }}</h6>
-        <span class="model">{{ tire.model.value }}</span>
+        <h6 class="manufacturer">{{ tire.manufacturer }}</h6>
+        <span class="model">{{ tire.model }}</span>
         <span class="description">{{ tire.desc }}</span>
 
         <span class="code">Código: {{ tire.upc }}</span>
@@ -36,13 +36,13 @@
             <span class="value">Carga máxima: {{load.value}} Kg</span>
           </div>
           <div class="item-detail">
-            <span class="key">{{tire.speedIndex.index}}</span>
-            <span class="value">Velocidad máxima: {{tire.speedIndex.value}} Km/h</span>
+            <span class="key">{{tire.speedIndex}}</span>
+            <span class="value">Velocidad máxima: {{tire.speedIndex}} Km/h</span>
           </div>
         </div>
 
 
-        
+
         <!-- <ng-container>
           <div>
             <span>{{}}</span>
@@ -91,7 +91,7 @@
             <hr class="hr">
             <strong class="is-5">{{tire.width}}/{{tire.ratio}} {{tire.diameter}}</strong>
           </div>
-            
+
 
         </div>
         <div class="column">

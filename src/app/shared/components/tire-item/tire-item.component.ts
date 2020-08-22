@@ -14,7 +14,8 @@ export class TireItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // console.log(this.tire);
+    console.log('Estoy en Tire');
+    console.log(this.tire);
     if (this.tire) {
       this.quantityFormControl = new FormControl("1", [
         Validators.required,

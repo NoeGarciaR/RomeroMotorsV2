@@ -19,8 +19,9 @@
         ></search-bar-tire>
         <!-- [disabledNavigate]="true" -->
     </div>
-    <div class="SearchTire__content">
-      <ng-container *ngFor="let tire of tires">
+
+    <div class="SearchTire__content" *ngIf="tires">
+      <ng-container *ngFor="let tire of tires.data.docs">
         <div style="margin-bottom: 15px;">
           <app-tire-item [tire]="tire"></app-tire-item>
         </div>
