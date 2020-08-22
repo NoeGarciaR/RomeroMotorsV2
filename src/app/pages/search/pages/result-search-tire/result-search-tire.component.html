@@ -1,0 +1,30 @@
+<div class="SearchTire">
+  <div class="SearchTire__header">
+    <h3>NEUMÁTICOS</h3>
+  </div>
+
+  <div class="SearchTire-container">
+    <div class="SearchTire__filter">
+      <div class="SearchTire__filter-container">
+        <span class="title">Filtros</span>
+      </div>
+    </div>
+    <div class="SearchTire__banner"></div>
+
+    <div class="SearchTire__search">
+      <search-bar-tire
+        [onlySearchBar]="true"
+        [measurementInitial]="queryParams"
+        (submit)="onSubmit($event)"
+        ></search-bar-tire>
+        <!-- [disabledNavigate]="true" -->
+    </div>
+    <div class="SearchTire__content">
+      <ng-container *ngFor="let tire of tires">
+        <div style="margin-bottom: 15px;">
+          <app-tire-item [tire]="tire"></app-tire-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

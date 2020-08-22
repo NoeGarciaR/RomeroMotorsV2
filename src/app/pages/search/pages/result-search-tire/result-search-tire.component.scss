@@ -1,0 +1,61 @@
+@import "~@angular/material/theming";
+
+.SearchTire {
+  &-container {
+    margin: 15px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 70px 400px 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  &__header {
+    background-image: url("../../../../../assets/images/background/background-search-tire.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 170px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > h3 {
+      text-transform: uppercase;
+      color: white;
+      font-weight: 600;
+      font-size: 40px;
+      font-stretch: 2;
+    }
+  }
+  &__filter {
+    grid-area: 1 / 1 / 3 / 2;
+    border-radius: 5px;
+    @include mat-elevation(2);
+    padding: 10px;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      .title {
+        text-transform: uppercase;
+        color: #646464;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        padding: 15px 0;
+
+      }
+    }
+  }
+  &__banner {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  &__search {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  &__content {
+    grid-area: 2 / 2 / 4 / 3;
+  }
+}

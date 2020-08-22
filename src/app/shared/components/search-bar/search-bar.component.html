@@ -1,0 +1,89 @@
+<!-- <div id="searchBarContainer" class="container is-flex" [class.smart]="isSmart">
+  <div class="left container" *ngIf="!isSmart" [class.smart]="isSmart">
+    <h3 class="title is-6 is-uppercase">encuentra tus neumáticos</h3>
+  </div>
+  <div class="right container" [class.smart]="isSmart">
+    <form (submit)="onSubmit($event)">
+      <div class="columns">
+        <div class="column ">
+          <div
+            class="select is-fullwidth"
+            [class.is-loading]="isLoadingWidthMeasure"
+          >
+            <select
+              name="width"
+              [formControl]="widthFormControl"
+              (change)="onChangesWidthHandle()"
+            >
+              <option value="">Ancho</option>
+              <option
+                *ngIf="isReadonly && measurementsDefault.width"
+                [value]="measurementsDefault.width"
+                >{{ measurementsDefault.width }}</option
+              >
+              <option *ngFor="let width of widthMeasure" [value]="width">{{
+                width
+              }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="column ">
+          <div
+            class="select is-fullwidth"
+            [class.is-loading]="isLoadingAspectRatioMeasure"
+          >
+            <select
+              name="aspectRatio"
+              [formControl]="apsectRatioFormControl"
+              (change)="onChangeAspectRatioHandle()"
+            >
+              <option value="">Perfil</option>
+              <option
+                *ngIf="isReadonly && measurementsDefault.ratio"
+                [value]="measurementsDefault.ratio"
+                >{{ measurementsDefault.ratio }}</option
+              >
+              <option
+                *ngFor="let aspectRatio of aspectRatioMeasure"
+                [value]="aspectRatio"
+                >{{ aspectRatio }}</option
+              >
+            </select>
+          </div>
+        </div>
+        <div class="column ">
+          <div class="select is-fullwidth">
+            <select name="diameter" [formControl]="diameterFormControl">
+              <option value="">Aro</option>
+              <option
+                *ngIf="isReadonly && measurementsDefault.diameter"
+                [value]="measurementsDefault.diameter"
+                >{{ measurementsDefault.diameter }}</option
+              >
+              <option
+                *ngFor="let diameter of diameterMeasure"
+                [value]="diameter"
+                >{{ diameter }}</option
+              >
+            </select>
+          </div>
+        </div>
+        <div class="column search-button-container is-2">
+          <button
+            type="submit"
+            class="button is-primary is-fullwidth"
+            [disabled]="
+              !(
+                widthFormControl.valid &&
+                apsectRatioFormControl.valid &&
+                diameterFormControl.valid
+              )
+            "
+          >
+            Buscar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->

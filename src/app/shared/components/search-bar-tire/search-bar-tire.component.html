@@ -1,0 +1,112 @@
+<div class="SearchBarTire">
+  <div class="SearchBarTire-container">
+    <div class="tiles-information-content" *ngIf="!isOnlySearchBar">
+      <div class="tile-information">
+        <img
+          class="icon"
+          src="assets/images/icons/mechanic_icon.svg"
+          alt="Mechanic"
+        />
+        <span class="text">Entrega y montaje en talleres asociados</span>
+      </div>
+      <div class="tile-information">
+        <img
+          class="icon"
+          src="assets/images/icons/padlock_icon.svg"
+          alt="Padlock"
+        />
+        <span class="text">¿Cómo realizar una compra segura?</span>
+      </div>
+      <div class="tile-information">
+        <img class="icon" src="assets/images/icons/tire_icon.svg" alt="Tire" />
+        <span class="text">Ver todos los neumáticos</span>
+      </div>
+    </div>
+    <div
+      class="search-bar-content"
+      [ngClass]="{ 'only-search-bar': isOnlySearchBar }"
+    >
+      <div class="col-1">
+        <div class="title">
+          <span>
+            Encuentra tus neumáticos
+          </span>
+        </div>
+        <form
+          class="form-search"
+          [formGroup]="formSearch"
+          (ngSubmit)="onSearchTire()"
+        >
+          <select
+            name="width"
+            id="width"
+            formControlName="width"
+            (change)="onChangeInputWidth()"
+          >
+            <option disabled selected value="">Ancho</option>
+            <ng-container *ngFor="let item of measuresParamsSearch">
+              <option [value]="item._id">{{ item.value }}</option>
+            </ng-container>
+          </select>
+
+          <select
+            name="ratio"
+            id="ratio"
+            formControlName="ratio"
+            (change)="onChangeInputRatio()"
+          >
+            <option disabled selected value="">Perfil</option>
+            <ng-container *ngFor="let item of getRatioByWidth()">
+              <option [value]="item._id">{{ item.value }}</option>
+            </ng-container>
+          </select>
+
+          <select name="diameter" id="diameter" formControlName="diameter">
+            <option disabled selected value="">Aro</option>
+            <ng-container *ngFor="let item of getDiameterByRatio()">
+              <option [value]="item._id">{{ item.value }}</option>
+            </ng-container>
+          </select>
+          <button
+            [disabled]="!isValidForm()"
+            type="submit"
+            class="btn-submit-search"
+          >
+            Buscar
+          </button>
+        </form>
+      </div>
+      <!-- <div class="col-2"> -->
+      <button
+        *ngIf="!isOnlySearchBar"
+        class="btn-open-help-measurements"
+        (click)="toggleShowHelpMeasurements()"
+      >
+        <span>¿Cómo encontrar estas medidas? Clic aquí</span>
+        <mat-icon>{{
+          isShowHelpMeasurements ? "arrow_drop_up" : "arrow_drop_down"
+        }}</mat-icon>
+      </button>
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <div class="SearchBarTire-help-container" *ngIf="isShowHelpMeasurements">
+    <div class="graphic_help_image-content">
+      <img
+        class="graphic_help_image"
+        src="assets/images/help_measurements.svg"
+        alt="help_measurements"
+      />
+    </div>
+    <div class="graphic_help_information-content">
+      <span>Ejemplo:</span>
+      <span>Este neumático tiene las siguientes medidas:</span>
+      <div class="measurements_example">
+        <span>• Ancho: 195</span>
+        <span>• Perfil: 55</span>
+        <span>• Aro: R16</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<header class="Header">
+  <div class="Header__brand">
+    <img src="/assets/images/logos/romero-motors-white.svg" alt="Logo" />
+  </div>
+  <nav class="Header__nav">
+    <div><a [routerLink]="['/']">Inicio</a></div>
+    <div><a [routerLink]="['/about-us']">Nosotros</a></div>
+    <div><a [routerLink]="['/workshop']">Locales</a></div>
+    <div><a>Productos</a></div>
+    <div><a [routerLink]="['/service']">Servicios</a></div>
+    <div><a>Promociones</a></div>
+    <div><a [routerLink]="['/contact-us']">Contacto</a></div>
+  </nav>
+  <div class="Header__shoppingCart">
+    <button mat-icon-button (click)="toggleMenuShoppingCart()">
+      <mat-icon class="material-icons-outlined">shopping_cart</mat-icon>
+    </button>
+
+    <div class="Header__shoppingCart-menu" *ngIf="showMenuShoppingCart"></div>
+  </div>
+</header>
+<div *ngIf="isShowSlider" class="gallery_slider_header"></div>

@@ -1,0 +1,57 @@
+<div class="layout-page" style="background-color: #f2f2f2;">
+  <section id="result-search" class="section page">
+    <div class="columns">
+      <div class="column is-one-quarter">
+        <div class="panel is-primary">
+          <div class="panel-heading ">
+            <h6>Filtro</h6>
+          </div>
+          <div class="panel-block has-background-white	">
+            <aside class="menu">
+              <p class="menu-label">
+                Medidas
+              </p>
+
+              <p class="menu-label">
+                Marcas
+              </p>
+
+              <p class="menu-label">
+                Vehiculos
+              </p>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <app-search-bar
+            [smart]="true"
+            [readonly]="true"
+            [measurementsDefault]="paramsSearchTire"
+          ></app-search-bar>
+        </div>
+
+        <app-list-vertical *ngIf="tires; else notTires">
+          <ul>
+            <li *ngFor="let tire of tires" class="item-list-tire">
+              <!-- <p>{{tire.description}}</p> -->
+              <app-tire-item [tire]="tire"></app-tire-item>
+            </li>
+          </ul>
+        </app-list-vertical>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<ng-template #notTires>
+  <div class="container">
+    <div class="content">
+      <p class="has-text-centered">
+        No hay neumaticos con esas medidas.
+      </p>
+    </div>
+  </div>
+</ng-template>

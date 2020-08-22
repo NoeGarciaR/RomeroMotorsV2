@@ -1,0 +1,113 @@
+<div class="TireCard" *ngIf="tire">
+  <!-- Badge -->
+  <div class="TireCard__badge-desc" *ngIf="tire.cost.percentage < 0">
+    <span>{{ tire.cost.percentage }}%</span>
+  </div>
+  <div class="TireCard__badge-install" *ngIf="tire.freeInstallation">
+    <span
+      >Instalación <br />
+      Gratis</span
+    >
+  </div>
+
+  <!-- Container -->
+  <div class="TireCard-container">
+    <div class="TireCard__images">
+      <img src="assets/images/tire-example.jpg" [alt]="tire.title" />
+    </div>
+    <div class="TireCard__content">
+      <div class="col-left">
+        <h6 class="manufacturer">{{ tire.manufacturer.value }}</h6>
+        <span class="model">{{ tire.model.value }}</span>
+        <span class="description">{{ tire.desc }}</span>
+
+        <span class="code">Código: {{ tire.upc }}</span>
+
+        <ng-container *ngFor="let vehicle of tire.vehicleType">
+          <span>{{ vehicle.value }}</span>
+        </ng-container>
+      </div>
+      <div class="col-right">
+        <span class="title-detail">Detalles:</span>
+
+        <div class="content-detail">
+          <div class="item-detail" *ngFor="let load of tire.loadIndex">
+            <span class="key">{{load.index}}</span>
+            <span class="value">Carga máxima: {{load.value}} Kg</span>
+          </div>
+          <div class="item-detail">
+            <span class="key">{{tire.speedIndex.index}}</span>
+            <span class="value">Velocidad máxima: {{tire.speedIndex.value}} Km/h</span>
+          </div>
+        </div>
+
+
+        
+        <!-- <ng-container>
+          <div>
+            <span>{{}}</span>
+          </div>
+        </ng-container> -->
+
+
+        <span class="sku">COD: {{tire.sku}}</span>
+      </div>
+      <div class="col-bottom">
+        <div class="cost">
+          <span>Precio Unidad:</span>
+          <div>
+            <span class="cost-base">S/. {{ tire.cost.base }} </span>
+            <span class="cost-desc">S/. {{ tire.cost.discount }} </span>
+          </div>
+        </div>
+        <input
+          class="quantity"
+          value="1"
+          [max]="tire.stock"
+          type="number"
+          name="quantity"
+          id="quantity"
+        />
+        <button class="add-cart">Agregar al carrito</button>
+        <button class="quote-whatsapp">Cotizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container box" *ngIf="tire">
+  <div class="columns">
+    <div class="column is-one-third">
+      <img class="tire-image" src="assets/images/tire-example.jpg" alt="Tire" />
+    </div>
+    <div class="column">
+      <div class="columns">
+        <div class="column">
+          <div class="content is-flex" style="flex-direction: column;">
+
+            <p class="title is-4">{{tire.desc}}</p>
+            <p class="subtitle has-text-weight-bold has-text-primary">{{tire.manufacturer}}</p>
+            <span class="is-6">{{tire.vehicleType[0].value}}</span>
+            <hr class="hr">
+            <strong class="is-5">{{tire.width}}/{{tire.ratio}} {{tire.diameter}}</strong>
+          </div>
+            
+
+        </div>
+        <div class="column">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis dolorum necessitatibus voluptates eligendi minus sit delectus dolore blanditiis expedita eveniet! Numquam, voluptatibus necessitatibus ipsa consequatur vero consectetur delectus veritatis officia.
+        </div>
+      </div>
+      <hr class="hr">
+      <div class="columns">
+        <div class="column">
+            <span>Precio unidad : S/.{{tire.cost.base}}</span>
+        </div>
+        <div class="column is-flex">
+            <input type="number" style="margin-right: 15px;" (keydown)="onlyNumber($event)" class="input" [formControl]="quantityFormControl" name="quantity" >
+            <button class="button is-primary" [disabled]="!quantityFormControl.valid">Agregar al carrito</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div> -->

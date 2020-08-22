@@ -1,0 +1,101 @@
+// @import "../../../../styles.scss";
+#searchBarContainer {
+  flex-direction: row;
+  background-color: #fff;
+  align-items: center;
+  box-shadow: 0px 0px 15px 1px #9c9c9c;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+  height: 120px;
+
+  &.smart {
+    height: 70px;
+  }
+
+  .left,
+  .right {
+    padding: 30px 25px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &.smart {
+      padding: 20px;
+    }
+  }
+
+  .left {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+
+    .title {
+      color: white;
+    }
+
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   border-right: 20px solid blue;
+    //   top: -25px;
+    //   bottom: -10px;
+    //   left: 0;
+    //   right: -10px;
+    //   -moz-transform: rotate(10deg);
+    //   -webkit-transform: rotate(10deg);
+    // }
+  }
+
+  .right {
+    width: 70%;
+
+    &.smart {
+      width: 100%;
+    }
+
+    form {
+      width: 100%;
+    }
+  }
+
+  .search-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  #searchBarContainer {
+    flex-direction: column;
+    height: auto !important;
+
+    .left,
+    .right {
+      padding: 30px 25px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      &.smart {
+        padding: 20px;
+      }
+    }
+
+    .left {
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      width: 100% !important;
+    }
+
+    .right {
+      width: 100% !important;
+      form {
+        width: 100%;
+      }
+    }
+  }
+}

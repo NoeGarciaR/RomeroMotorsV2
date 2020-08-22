@@ -1,0 +1,214 @@
+@import "~@angular/material/theming";
+
+.TireCard {
+  padding: 20px;
+  //   border: solid 1px #646464;
+  position: relative;
+  border-radius: 5px;
+  @include mat-elevation(2);
+
+  &-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__images {
+    width: 30%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__content {
+    width: 70%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 70px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    .col-left {
+      grid-area: 1 / 1 / 2 / 2;
+      display: flex;
+      flex-direction: column;
+
+      .manufacturer {
+        margin: 0;
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .model {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .description {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .code {
+        color: #646464;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+    .col-right {
+      grid-area: 1 / 2 / 2 / 3;
+      display: flex;
+      flex-direction: column;
+
+      .title-detail {
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      .content-detail {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0 30px;
+        .item-detail {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          .key {
+            background-color: #646464;
+            padding: 3px;
+            color: white;
+            font-size: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+          }
+
+          .value {
+            margin-left: 10px;
+            color: black;
+            font-size: 14px;
+            font-weight: 600;
+          }
+
+          &:not(:last-child){
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      .sku {
+        padding: 10px 15px;
+        background-color: black;
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+        width: fit-content;
+        border-radius: 5px;
+      }
+    }
+    .col-bottom {
+      grid-area: 2 / 1 / 3 / 3;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      border-top: solid 1px #646464;
+
+      .cost {
+        > * {
+          font-weight: 500;
+          color: black;
+        }
+
+        &-base {
+          text-decoration: line-through;
+          margin-right: 5px;
+        }
+
+        &-desc{
+          font-weight: bold;
+        }
+      }
+
+      .quantity {
+        margin-left: auto;
+        margin-right: 10px;
+        font-size: 15px;
+        max-width: 40px;
+        border-radius: 5px;
+        padding: 5px;
+        border: solid 1px #646464;
+        color: #646464;
+      }
+
+      .add-cart {
+        background-color: #b61a3b;
+        border-radius: 5px;
+        color: white;
+        text-align: center;
+        padding: 10px 20px;
+        border: none;
+        font-size: 14.5px;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+
+      .quote-whatsapp {
+        border-radius: 5px;
+        background-color: #ffcd17;
+        text-align: center;
+        padding: 10px 20px;
+        border: none;
+
+        font-size: 14.5px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__badge {
+    &-desc,
+    &-install {
+      position: absolute;
+      left: 0;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &-desc {
+      background-color: #b61a3b;
+      padding: 5px 10px;
+      > span {
+        color: white;
+        font-weight: 600;
+        font-size: 25px;
+      }
+    }
+
+    &-install {
+      top: 70px;
+      padding: 5px 10px;
+      background-color: #ffcd17;
+
+      > span {
+        color: black;
+        font-weight: 600;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

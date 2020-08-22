@@ -1,0 +1,50 @@
+<div class="has-background-primary layout">
+  <div class="card">
+    <div class="card-head">
+      <h2 class="title">Romero Motors Admin</h2>
+    </div>
+
+    <div class="card-body">
+      <form (submit)="onSubmit($event)" [formGroup]="formLogin">
+        <div class="field">
+          <label class="label">Usuario</label>
+          <div class="control">
+            <input
+              class="input"
+              name="username"
+              type="text"
+              formControlName="username"
+              autocomplete="username"
+              placeholder="e.g username"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Contraseña</label>
+          <div class="control">
+            <input
+              class="input"
+              name="password"
+              type="password"
+              formControlName="password"
+              autocomplete="new-password"
+              placeholder="e.g. 123456"
+            />
+          </div>
+        </div>
+
+        <div class="control">
+          <button
+            type="submit"
+            [class.is-loading]="isLoadingLogin"
+            [disabled]="!formLogin.valid"
+            class="button is-primary"
+          >
+            Iniciar Sesión
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

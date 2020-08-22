@@ -1,0 +1,254 @@
+<div class="page-layout-admin section">
+  <div class="header">
+    <div class="content">
+      <h3 class="title">Agregar Neumaticos</h3>
+    </div>
+  </div>
+
+  <div>
+    <div class="select ">
+      <select
+        (change)="onChangeTypeForm($event.target.value)"
+        [formControl]="controlTypeForm"
+        name="typeForm"
+      >
+        <option
+          *ngFor="let type of typeCreateMeasure"
+          [value]="type.nameField"
+          >{{ type.nameField }}</option
+        >
+      </select>
+    </div>
+
+    <ng-container [ngSwitch]="controlTypeForm.value">
+      <ng-container
+        *ngSwitchCase="'width'"
+        [ngTemplateOutlet]="onlyWidth"
+      ></ng-container>
+      <ng-container
+        *ngSwitchCase="'ratio'"
+        [ngTemplateOutlet]="onlyWidthRatio"
+      ></ng-container>
+      <ng-container
+        *ngSwitchCase="'diameter'"
+        [ngTemplateOutlet]="all"
+      ></ng-container>
+    </ng-container>
+    <!-- <div class="field">
+        <label class="label">Descripcion</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="description"
+            type="text"
+            placeholder="e.g. Llanta ..."
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Texto Alterno</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="altText"
+            type="text"
+            placeholder="e.g. Cualquier cosa"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Vehiculo</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="vehicleType"
+            type="text"
+            placeholder="e.g. Camion"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Stock</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="stock"
+            type="number"
+            placeholder="e.g. 3"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Ancho</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="width"
+            type="text"
+            placeholder="e.g. 190"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Perfil</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="ratio"
+            type="text"
+            placeholder="e.g. 20"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Aro</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="diameter"
+            type="text"
+            placeholder="e.g. 14"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Precio Regular</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="regCost"
+            type="number"
+            placeholder="e.g. 220"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Descuento</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="discount"
+            type="number"
+            placeholder="e.g. 20"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Precio Final</label>
+        <div class="control">
+          <input
+            class="input"
+            formControlName="finalCost"
+            type="number"
+            placeholder="e.g. 200"
+          />
+        </div>
+      </div> -->
+    <div class="field is-grouped is-grouped-centered">
+      <div class="control">
+        <button
+          class="button is-primary"
+          type="button"
+          [class.is-loading]="isLoadingCreateMeasure"
+          [disabled]="!formMeasure.valid"
+          (click)="onSubmit()"
+        >
+          Crear
+        </button>
+      </div>
+      <div class="control">
+        <button class="button is-light" [routerLink]="['/admin', 'measure']">
+          Volver
+        </button>
+      </div>
+    </div>
+    <!-- </form> -->
+  </div>
+</div>
+
+<ng-template #onlyWidth>
+  <form [formGroup]="formMeasure">
+    <div class="field">
+      <label class="label">Ancho</label>
+      <div class="control">
+        <input
+          class="input"
+          formControlName="width"
+          type="text"
+          placeholder="e.g. 190"
+        />
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #onlyWidthRatio>
+  <form [formGroup]="formMeasure">
+    <div class="field">
+      <label class="label">Ancho</label>
+      <div class="control">
+        <input
+          class="input"
+          formControlName="width"
+          type="text"
+          placeholder="e.g. 190"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Perfil</label>
+      <div class="control">
+        <input
+          class="input"
+          formControlName="ratio"
+          type="text"
+          placeholder="e.g. 50"
+        />
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #all>
+  <form [formGroup]="formMeasure">
+    <div class="field">
+      <label class="label">Ancho</label>
+      <div class="control">
+        <input
+          class="input"
+          formControlName="width"
+          type="text"
+          placeholder="e.g. 190"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Perfil</label>
+      <div class="control">
+        <input
+          class="input"
+          formControlName="ratio"
+          type="text"
+          placeholder="e.g. 50"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Aro</label>
+      <div class="control">
+        <input
+          class="input"
+          formControlName="diameter"
+          type="text"
+          placeholder="e.g. 20"
+        />
+      </div>
+    </div>
+  </form>
+</ng-template>

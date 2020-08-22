@@ -1,0 +1,158 @@
+<div class="page-layout-admin section">
+    <div class="header">
+      <div class="content">
+        <h3 class="title">Actualizar Neumaticos</h3>
+      </div>
+    </div>
+  
+    <div>
+      <form (submit)="onSubmit()" [formGroup]="formTire">
+        <div class="field">
+          <label class="label">Marca</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="manufacturer"
+              type="text"
+              placeholder="e.g. Firestone"
+            />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Descripcion</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="description"
+              type="text"
+              placeholder="e.g. Llanta ..."
+            />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Texto Alterno</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="altText"
+              type="text"
+              placeholder="e.g. Cualquier cosa"
+            />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Vehiculo</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="vehicleType"
+              type="text"
+              placeholder="e.g. Camion"
+            />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Stock</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="stock"
+              type="number"
+              placeholder="e.g. 3"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Ancho</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="width"
+              type="text"
+              placeholder="e.g. 190"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Perfil</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="ratio"
+              type="text"
+              placeholder="e.g. 20"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Aro</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="diameter"
+              type="text"
+              placeholder="e.g. 14"
+            />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Precio Regular</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="regCost"
+              type="number"
+              placeholder="e.g. 220"
+            />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Descuento</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="discount"
+              type="number"
+              placeholder="e.g. 20"
+            />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Precio Final</label>
+          <div class="control">
+            <input
+              class="input"
+              formControlName="finalCost"
+              type="number"
+              placeholder="e.g. 200"
+            />
+          </div>
+        </div>
+        <div class="field is-grouped is-grouped-centered">
+          <div class="control">
+            <button
+              class="button is-primary"
+              type="submit"
+              [class.is-loading]="isLoadingUpdateTire"
+              [disabled]="!formTire.valid"
+            >
+              Actualizar
+            </button>
+          </div>
+          <div class="control">
+            <button class="button is-light" [routerLink]="['/admin', 'tire']">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

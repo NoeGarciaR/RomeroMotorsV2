@@ -1,0 +1,45 @@
+<div class="parent">
+  <div class="aside has-background-primary">
+    <aside class="menu">
+      <div class="brand">
+        <a class=" is-unselectable" [routerLink]="['/admin']">
+          <img
+            src="https://www.romeromotors.com.pe/wp-content/uploads/Logo-RomeroMotors-Blanco-180x60.png"
+            alt="Logo"
+          />
+        </a>
+      </div>
+      <ul class="menu-list">
+        <li>
+          <a [routerLink]="['/admin', 'tire']" routerLinkActive="is-active"
+            >Neumaticos</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/admin', 'manufacture']" routerLinkActive="is-active"
+            >Fabricantes</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/admin', 'measure']" routerLinkActive="is-active"
+            >Medidas</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/admin', 'user']" routerLinkActive="is-active"
+            >Usuarios</a
+          >
+        </li>
+        <li>
+          <a (click)="logout()"
+            >Cerrar Sesion</a
+          >
+        </li>
+        <!-- <li><a></a></li> -->
+      </ul>
+    </aside>
+  </div>
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
+</div>

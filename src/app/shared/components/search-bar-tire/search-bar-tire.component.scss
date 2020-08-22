@@ -1,0 +1,205 @@
+@import '~@angular/material/theming';
+
+.SearchBarTire {
+  background-color: white;
+  //   height: 250px;
+  background-color: transparent;
+  // width: 100%;
+  // padding: 25px 10px;
+
+  &-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .tiles-information-content {
+      display: flex;
+      flex-direction: row;
+
+      > .tile-information {
+        border-radius: 5px;
+        width: 150px;
+        background-color: #ffcd17;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+
+        > .icon {
+          width: 30px;
+          height: 30px;
+        }
+        > .text {
+          color: #1e1e1e;
+          font-size: 11px;
+          font-weight: bold;
+          text-align: center;
+          margin: 5px 10px;
+        }
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .search-bar-content {
+      padding: 10px 20px;
+      background-color: #c41f23;
+      width: 100%;
+
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      > .col-1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 38px;
+
+        .title {
+          width: 20%;
+
+          > span {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+
+        .form-search {
+          display: flex;
+          flex-direction: row;
+          width: 80%;
+          height: 100%;
+
+          > * {
+            flex: 1;
+            border-radius: 5px;
+          }
+
+          > select {
+            border: solid 1px #646464;
+            background-color: white;
+            color: #646464;
+            font-size: 14px;
+            font-weight: 500;
+
+            &:not(:last-child) {
+              margin-right: 5px;
+            }
+          }
+
+          > .btn-submit-search {
+            color: white;
+            font-weight: 600;
+            border: solid 1.5px white;
+            background-color: transparent;
+            margin-left: 30px;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .btn-open-help-measurements {
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        border-radius: 5px;
+        padding: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+
+        > span {
+          font-size: 14px;
+          color: #646464;
+        }
+
+        > mat-icon {
+          color: #646464;
+        }
+
+        &:hover {
+          background-color: #cbcbcb;
+        }
+      }
+
+      &.only-search-bar {
+        background-color: white;
+        @include mat-elevation(2);
+
+        > .col-1 {
+          .title {
+            display: none;
+          }
+          .form-search {
+            > .btn-submit-search {
+             background-color: #c41f23;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-help-container {
+    margin-top: 20px;
+    border-radius: 5px;
+    border: solid 1px #cbcbcb;
+    height: 170px;
+    display: flex;
+    flex-direction: row;
+
+    .graphic_help_image-content,
+    .graphic_help_information-content {
+      width: 50%;
+      height: 100%;
+    }
+
+    .graphic_help_image-content {
+      position: relative;
+
+      .graphic_help_image {
+        width: 300px;
+        position: absolute;
+        bottom: -196px;
+        left: 30%;
+      }
+    }
+
+    .graphic_help_information-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      > span {
+        color: #646464;
+
+        &:first-child {
+          font-style: italic;
+        }
+      }
+
+      .measurements_example {
+        > span {
+          font-size: 16px;
+          font-weight: 600;
+          color: #646464;
+
+          &:not(:last-child) {
+            margin-right: 25px;
+          }
+        }
+      }
+    }
+  }
+}
