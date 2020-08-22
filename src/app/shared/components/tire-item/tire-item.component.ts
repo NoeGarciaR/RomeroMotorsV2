@@ -34,6 +34,8 @@ export class TireItemComponent implements OnInit {
       ]);
       //console.log(this.tire);
       this.loadData = this.getLoad( this.tire.loadIndexId[0]);
+      this.speedData = this.getSpeed( this.tire.speedIndexId );
+      console.log(this.speedData);
     }
   }
 
@@ -61,7 +63,14 @@ export class TireItemComponent implements OnInit {
   getLoad( id: string ) {
     let status: Data;
     status = this._speedLoad.searchLoadId( id );
-    console.log(status);
+    //console.log(status);
+    return status;
+  }
+
+  getSpeed( id: string ) {
+    let status: Data;
+    status = this._speedLoad.searchSpeedId( id );
+    //console.log(status);
     return status;
   }
 }
