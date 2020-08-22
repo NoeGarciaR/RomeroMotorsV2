@@ -24,7 +24,7 @@ export class ResultSearchTireComponent implements OnInit, OnDestroy {
 
     if (this.tires === null) {
       this._tireService.getTireOption(this.queryParams).subscribe( ( res: Tire ) => {
-        console.log('Estoy en subscribe');
+        //console.log('Estoy en subscribe');
         this.tires = res;
         //console.log(this.tires.data.docs.length);
         //console.log(res);

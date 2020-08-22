@@ -49,7 +49,7 @@ export class SearchBarTireComponent implements OnInit, OnChanges {
     });
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.measurementIntial);
+    //console.log(this.measurementIntial);
     this.formSearch.patchValue(this.measurementIntial);
   }
 

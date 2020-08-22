@@ -13,7 +13,7 @@ const SEARCH_KEY = makeStateKey("searchTire");
 })
 export class ResultSearchComponent implements OnInit, OnDestroy {
   public paramsSearchTire: any;
-  public tires: Tire[] 
+  public tires: Tire[];
   // = [123,123,123,123,123,123,123];
 
   constructor(

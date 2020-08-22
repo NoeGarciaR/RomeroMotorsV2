@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   baseURL: 'https://romero-motors-api.herokuapp.com/api',
-  keyCrypto: '123345'
+  keyCrypto: '123345',
+  baseURL_UPL: 'https://romero-motors-api.herokuapp.com/uploads'
 };
 
 /*

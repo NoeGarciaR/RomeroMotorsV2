@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, AfterContentChecked } from "@angular/core";
 import { Tire } from "src/app/core/models/Tire.model";
 import { FormControl, Validators } from "@angular/forms";
+import { environment } from '../../../../environments/environment';
+import { SpeedLoadService } from '../../../core/services/speed-load.service';
 
 @Component({
   selector: "app-tire-item",
@@ -8,14 +10,16 @@ import { FormControl, Validators } from "@angular/forms";
   styleUrls: ["./tire-item.component.scss"]
 })
 export class TireItemComponent implements OnInit {
+  url_path = environment.baseURL_UPL;
   @Input("tire") public tire: Tire = null;
 
   public quantityFormControl: FormControl;
-  constructor() {}
+  constructor( private _speedLoad: SpeedLoadService) {
+  }
 
   ngOnInit(): void {
-    console.log('Estoy en Tire');
-    console.log(this.tire);
+    //console.log('Estoy en Tire');
+    //console.log(this.tire);
     if (this.tire) {
       this.quantityFormControl = new FormControl("1", [
         Validators.required,
