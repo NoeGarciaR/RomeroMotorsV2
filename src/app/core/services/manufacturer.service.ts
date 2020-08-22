@@ -17,7 +17,7 @@ export class ManufacturerService {
   public getManufactures() {
     this._http.get(this.URL_PATH).subscribe( (res: Manufacturer) => {
       this.manufactures = res.data;
-      console.log(this.manufactures);
+      //console.log(this.manufactures);
     });
   }
 

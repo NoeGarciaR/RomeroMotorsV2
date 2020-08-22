@@ -7,6 +7,8 @@ import { environment } from '../../../../environments/environment';
 import { SpeedLoadService } from '../../../core/services/speed-load.service';
 import { ManufacturerService } from '../../../core/services/manufacturer.service';
 import { ManufacturerData } from '../../../core/models/personalities/Manufacturer.model';
+import { DataVehicleType, VehicleType } from '../../../core/models/personalities/VehicleType.model';
+import { VehicleTypeService } from '../../../core/services/vehicle-type.service';
 
 @Component({
   selector: "app-tire-item",
@@ -21,10 +23,12 @@ export class TireItemComponent implements OnInit {
   public loadData: Data;
 
   public manufacturer: ManufacturerData;
+  public vehicleTypes: VehicleType[];
 
   public quantityFormControl: FormControl;
   constructor( public _speedLoad: SpeedLoadService,
-               public _manufactures: ManufacturerService
+               public _manufactures: ManufacturerService,
+               public _vehicleType: VehicleTypeService
                ) {
   }
 
@@ -45,6 +49,10 @@ export class TireItemComponent implements OnInit {
       /*Obteniendo manufacturas*/
       this._manufactures.getManufactures();
       this.manufacturer = this._manufactures.getManufacturerId( this.tire.manufacturerId );
+      /*Obteniendo Vehiculos*/
+      this._vehicleType.getVehicleType();
+      this.vehicleTypes = this._vehicleType.getVehicleTypeId( this.tire.vehicleTypeId );
+      console.log(this.vehicleTypes);
     }
   }
 

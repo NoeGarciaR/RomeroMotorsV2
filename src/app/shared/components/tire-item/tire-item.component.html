@@ -17,16 +17,18 @@
     </div>
     <div class="TireCard__content">
       <div class="col-left">
-        <img src="assets/images/">
-        <h6 class="manufacturer">{{ tire.manufacturerId }}</h6>
+        <!--<img src="assets/images/">-->
+        <h6 class="manufacturer">
+          <img [src]="url_path+'/'+manufacturer.image"  [alt]="manufacturer.value" />
+        </h6>
         <span class="model">{{ manufacturer.children[0].value }}</span>
         <span class="description">{{ tire.desc }}</span>
 
         <span class="code">Código: {{ tire.sku }}</span>
 
-        <ng-container *ngFor="let vehicle of tire.vehicleTypeId">
-          HOLA
-          <!--<span>{{ vehicle.value }}</span>-->
+        <ng-container *ngFor="let vehicle of vehicleTypes">
+          <img [src]="url_path+'/'+vehicle.image"  [alt]="vehicle.id" />
+          <!--<span>{{ vehicle.image }}</span>-->
         </ng-container>
       </div>
       <div class="col-right">
