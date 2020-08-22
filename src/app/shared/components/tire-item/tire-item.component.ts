@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, AfterContentChecked } from "@angular/core";
-import { Tire } from "src/app/core/models/Tire.model";
+import { Doc, Tire } from 'src/app/core/models/personalities/Tire.model';
+import { Data } from 'src/app/core/models/personalities/SpeedLoad.model';
+
 import { FormControl, Validators } from "@angular/forms";
 import { environment } from '../../../../environments/environment';
 import { SpeedLoadService } from '../../../core/services/speed-load.service';
@@ -11,10 +13,14 @@ import { SpeedLoadService } from '../../../core/services/speed-load.service';
 })
 export class TireItemComponent implements OnInit {
   url_path = environment.baseURL_UPL;
-  @Input("tire") public tire: Tire = null;
+  @Input("tire") public tire: Doc= null;
+
+  public speedData: Data;
+  public loadData: Data;
+
 
   public quantityFormControl: FormControl;
-  constructor( private _speedLoad: SpeedLoadService) {
+  constructor( public _speedLoad: SpeedLoadService) {
   }
 
   ngOnInit(): void {
@@ -26,8 +32,12 @@ export class TireItemComponent implements OnInit {
         Validators.min(1),
         Validators.max(this.tire.stock)
       ]);
+      //console.log(this.tire);
+      this.loadData = this.getLoad( this.tire.loadIndexId[0]);
     }
   }
+
+
 
   /**
    * onlyNumber
@@ -46,5 +56,12 @@ export class TireItemComponent implements OnInit {
     } else {
       return true;
     }
+  }
+
+  getLoad( id: string ) {
+    let status: Data;
+    status = this._speedLoad.searchLoadId( id );
+    console.log(status);
+    return status;
   }
 }

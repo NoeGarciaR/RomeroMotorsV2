@@ -3,7 +3,7 @@
   <div class="TireCard__badge-desc" *ngIf="tire.cost.percentage < 0">
     <span>{{ tire.cost.percentage }}%</span>
   </div>
-  <div class="TireCard__badge-install" *ngIf="tire.freeInstallation">
+  <div class="TireCard__badge-install" *ngIf="tire.freeInst">
     <span
       >Instalación <br />
       Gratis</span
@@ -17,28 +17,31 @@
     </div>
     <div class="TireCard__content">
       <div class="col-left">
-        <h6 class="manufacturer">{{ tire.manufacturer }}</h6>
-        <span class="model">{{ tire.model }}</span>
+        <h6 class="manufacturer">{{ tire.manufacturerId }}</h6>
+        <span class="model">{{ tire.modelId }}</span>
         <span class="description">{{ tire.desc }}</span>
 
         <span class="code">Código: {{ tire.upc }}</span>
 
-        <ng-container *ngFor="let vehicle of tire.vehicleType">
-          <span>{{ vehicle.value }}</span>
+        <ng-container *ngFor="let vehicle of tire.vehicleTypeId">
+          HOLA
+          <!--<span>{{ vehicle.value }}</span>-->
         </ng-container>
       </div>
       <div class="col-right">
         <span class="title-detail">Detalles:</span>
 
         <div class="content-detail">
-          <div class="item-detail" *ngFor="let load of tire.loadIndex">
-            <span class="key">{{load.index}}</span>
-            <span class="value">Carga máxima: {{load.value}} Kg</span>
-          </div>
           <div class="item-detail">
-            <span class="key">{{tire.speedIndex}}</span>
-            <span class="value">Velocidad máxima: {{ HOLA }} Km/h</span>
+            <span class="key">{{ loadData.index }}</span>
+            <span class="value">Carga máxima: {{ loadData.value }} Kg</span>
           </div>
+          <!--
+          <div class="item-detail">
+            <span class="key">{{tire.speedIndexId}}</span>
+            <span class="value">Velocidad máxima: {{ loadData.value }}  Km/h</span>
+          </div>
+          -->
         </div>
 
 

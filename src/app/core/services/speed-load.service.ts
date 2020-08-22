@@ -19,10 +19,10 @@ export class SpeedLoadService {
   private getSpeedLoad() {
     this._http.get(this.URL_PATH).subscribe( (res: SpeedLoad) => {
       res.data.forEach( (data: Data) => {
-        if ( data.indexKind === 'load' ) {
+        if ( data.indexKind === 'speed' ) {
           this.speed.push(data);
         } else {
-          if ( data.indexKind === 'speed' ) {
+          if ( data.indexKind === 'load' ) {
             this.load.push(data);
           }
         }
@@ -31,21 +31,25 @@ export class SpeedLoadService {
   }
 
   public searchSpeedId( id: string ): Data {
+    let dato: Data = null;
     this.speed.forEach( (data: Data) => {
       if ( data.id === id ) {
-        return data;
+        //console.log('Encontrado', data.value);
+        dato = data;
       }
     } );
-    return null;
+    return dato;
   }
 
   public searchLoadId( id: string ): Data {
+    let dato: Data = null;
     this.load.forEach( (data: Data) => {
       if ( data.id === id ) {
-        return data;
+        //console.log('Encontrado', data.value);
+        dato = data;
       }
     } );
-    return null;
+    return dato;
   }
 
 }
