@@ -115,12 +115,13 @@
       }
 
       .sku {
-        padding: 2px 15px;
+        padding: 3px 15px;
         background-color: black;
         text-align: center;
         color: white;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 500;
         width: fit-content;
         border-radius: 7px;
       }
@@ -188,6 +189,7 @@
   &__badge {
     &-desc,
     &-install {
+      margin-top: 2%;
       position: absolute;
       left: 0;
       border-top-right-radius: 5px;
@@ -235,9 +237,37 @@
   display: flex;
   justify-content: space-between;
 }
+.h-35 {
+  height: 35%;
+}
 .bw-70 {
   width: 60%;
 }
 .bw-30 {
   width: 37%;
+}
+.buttons-whatssApp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 20px;
+  background-color: none;
+  text-align: center;
+  color: #00bb2d;
+  font-size: 14px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  width: fit-content;
+  border: #00bb2d solid 1.5px;
+  border-radius: 7px;
+}
+.buttons-whatssApp img {
+  padding-right: 8px;
+  max-width: 1rem;
+}
+/*Botones de codigo y WattsApp*/
+.container-buttons-info {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
