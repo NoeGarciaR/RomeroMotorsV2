@@ -2,10 +2,16 @@
   <div class="">
     <div class="title-content">
       <h3 class="title-filtro" >Marcas</h3>
-      <button (click)="ocultView()" >Ocultar</button>
-     <img class="icon" src="assets/images/icons/triangle-bottom.svg">
+      <button
+        class="btn-open-options"
+        (click)="toggleShowOptions()">
+        <mat-icon>
+          {{isShowOptions ? "arrow_drop_up" : "arrow_drop_down"}}
+        </mat-icon>
+      </button>
     </div>
-    <div id="options">
+
+    <div *ngIf="isShowOptions">
       <div class="option">
         <input type="checkbox">
         <label>
