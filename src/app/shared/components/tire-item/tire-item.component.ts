@@ -43,16 +43,16 @@ export class TireItemComponent implements OnInit {
       ]);
       //console.log(this.tire);
       /*Obteneido datos de Speed y Load*/
-      this.loadData = this._speedLoad.searchLoadId( this.tire.loadIndexId[0] );//this.getLoad( this.tire.loadIndexId[0]);
-      this.speedData = this._speedLoad.searchSpeedId( this.tire.speedIndexId );//this.getSpeed( this.tire.speedIndexId );
+      //this.loadData = this._speedLoad.searchLoadId( this.tire.loadIndexId[0] );//this.getLoad( this.tire.loadIndexId[0]);
+      //this.speedData = this._speedLoad.searchSpeedId( this.tire.speedIndexId );//this.getSpeed( this.tire.speedIndexId );
       //console.log(this.speedData);
       /*Obteniendo manufacturas*/
-      this._manufactures.getManufactures();
-      this.manufacturer = this._manufactures.getManufacturerId( this.tire.manufacturerId );
+      //this._manufactures.getManufactures();
+      //this.manufacturer = this._manufactures.getManufacturerId( this.tire.manufacturerId );
       /*Obteniendo Vehiculos*/
-      this._vehicleType.getVehicleType();
-      this.vehicleTypes = this._vehicleType.getVehicleTypeId( this.tire.vehicleTypeId );
-      console.log(this.vehicleTypes);
+      //this._vehicleType.getVehicleType();
+      //this.vehicleTypes = this._vehicleType.getVehicleTypeId( this.tire.vehicleTypeId );
+      //console.log(this.vehicleTypes);
     }
   }
 

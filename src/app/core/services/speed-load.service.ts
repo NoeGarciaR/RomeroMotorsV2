@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment.prod';
   providedIn: 'root'
 })
 export class SpeedLoadService {
-  private URL_PATH = environment.baseURL + '/product-dep/:index';
+  private URL_PATH = environment.baseURL + '/product-dep/index';
   private load: Data[] = [];
   private speed: Data[] = [];
 

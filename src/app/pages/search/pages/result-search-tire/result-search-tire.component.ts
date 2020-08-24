@@ -12,7 +12,7 @@ const TIRES_SEARCH = makeStateKey("TIRES_SEARCH");
   styleUrls: ["./result-search-tire.component.scss"],
 })
 export class ResultSearchTireComponent implements OnInit, OnDestroy {
-  public tires: Tire = null;
+  public tires: Doc[] = null;
   public queryParams: any = {};
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -23,9 +23,10 @@ export class ResultSearchTireComponent implements OnInit, OnDestroy {
     this.queryParams = this._activatedRoute.snapshot.queryParams;
 
     if (this.tires === null) {
-      this._tireService.getTireOption(this.queryParams).subscribe( ( res: Tire ) => {
+      this._tireService.getTireOption(this.queryParams).subscribe( ( res: Doc[] ) => {
         //console.log('Estoy en subscribe');
         this.tires = res;
+        console.log(res);
         //console.log(this.tires.data.docs.length);
         //console.log(res);
       });

@@ -19,17 +19,20 @@
       <div class="col-left">
         <!--<img src="assets/images/">-->
         <div class="manufacturer">
-          <img [src]="url_path+'/'+manufacturer.image"  [alt]="manufacturer.value" />
+          Imagen Manufacturer
+          <!--<img [src]="url_path+'/'+manufacturer.image"  [alt]="manufacturer.value" />-->
         </div>
-        <span class="model">{{ manufacturer.children[0].value }}</span>
+        <span class="model">Valor de Manufacturer<!--{{ manufacturer.children[0].value }}--></span>
         <span class="description">{{ tire.desc }}</span>
 
         <span class="code">Código: {{ tire.sku }}</span>
         <div class="icon-container">
+          Imagenes de camioneta y carrito
+          <!--
           <ng-container *ngFor="let vehicle of vehicleTypes">
             <img [src]="url_path+'/'+vehicle.image"  [alt]="vehicle.id" class="mw-icon-20" />
-            <!--<span>{{ vehicle.image }}</span>-->
           </ng-container>
+          -->
         </div>
       </div>
       <div class="col-right">
@@ -37,13 +40,21 @@
 
         <div class="content-detail">
           <div class="item-detail">
+            <span class="key">index</span>
+            <span class="value">Carga máxima: numero Kg</span>
+            <!--
             <span class="key">{{ loadData.index }}</span>
             <span class="value">Carga máxima: {{ loadData.value }} Kg</span>
+            -->
           </div>
 
           <div class="item-detail">
+            <span class="key">##</span>
+            <span class="value">Velocidad máxima: numero  Km/h</span>
+            <!--
             <span class="key">{{ speedData.index }}</span>
             <span class="value">Velocidad máxima: {{ speedData.value }}  Km/h</span>
+            -->
           </div>
         </div>
 

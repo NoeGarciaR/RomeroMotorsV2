@@ -9,8 +9,6 @@
         <div class="SearchTire__filter-container-card">
           <span class="SearchTire__filter-container-card-title">Filtros</span>
           <app-filter-navbar-layout></app-filter-navbar-layout>
-          <app-filter-navbar-layout></app-filter-navbar-layout>
-          <app-filter-navbar-layout></app-filter-navbar-layout>
         </div>
       </div>
     </div>
@@ -33,9 +31,8 @@
         ></search-bar-tire>
         <!-- [disabledNavigate]="true" -->
     </div>
-
     <div class="SearchTire__content" *ngIf="tires">
-      <ng-container *ngFor="let tire of tires.data.docs">
+      <ng-container *ngFor="let tire of tires">
         <div style="margin-bottom: 15px;">
           <app-tire-item [tire]="tire"></app-tire-item>
         </div>

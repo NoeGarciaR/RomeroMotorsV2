@@ -11,7 +11,7 @@ import { map } from "rxjs/operators";
   providedIn: "root",
 })
 export class TireService {
-  private URL_TIRE = `${environment.baseURL}/product/:tire`;
+  private URL_TIRE = `${environment.baseURL}/product/tire`;
   constructor(private readonly _http: HttpClient) {}
 
   public get(queryParams: Partial<Tire>): Observable<Tire[]> {
@@ -31,7 +31,7 @@ export class TireService {
     return this._http.get(this.URL_TIRE, { headers } )
       .pipe(
         map( (res: Tire ) => {
-          return res;
+          return res.data.docs;
         } )
       );
   }
