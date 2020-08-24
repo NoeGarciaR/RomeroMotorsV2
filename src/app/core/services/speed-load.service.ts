@@ -9,7 +9,7 @@ import { DataVehicleType, VehicleType } from '../models/personalities/VehicleTyp
   providedIn: 'root'
 })
 export class SpeedLoadService {
-  private URL_PATH = environment.baseURL + '/product-dep/index';
+  private URL_PATH = 'https://romero-motors-api.herokuapp.com/api/product-dep/index';
   private load: Data[] = [];
   private speed: Data[] = [];
 
@@ -17,23 +17,26 @@ export class SpeedLoadService {
   }
 
   public get( id_load: string[], id_spped: string ) {
-    return this._http.get(this.URL_PATH)
+    return this._http.get(this.URL_PATH, { responseType: 'json' })
       .pipe(
         map( (res: SpeedLoad ) => {
           let resultado: SpeedLoadResult = {
             load: [],
             spped: null
           };
+          console.log(res);
           res.data.forEach( ( item: Data ) => {
-            id_load.forEach( ( _id_load: string ) => {
-              if ( item.id === _id_load ) {
-                resultado.load.push(item);
-              }
-            });
-            if ( item.id === id_spped ) {
+            if ( item.id ===  id_spped ) {
               resultado.spped = item;
+            }{
+              id_load.forEach( ( _id_load: string ) => {
+                if ( item.id === _id_load ) {
+                  resultado.load.push(item);
+                }
+              });
             }
           });
+          console.log(resultado);
           return resultado;
         })
       );

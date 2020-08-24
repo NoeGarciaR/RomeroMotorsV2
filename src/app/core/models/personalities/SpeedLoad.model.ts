@@ -27,18 +27,17 @@ export enum Kind {
   Index = "Index",
 }
 
-export interface SpeedLoadResult {
-  load: Data[],
-  spped: Data
-}
-
 // Converts JSON strings to/from your types
 export class Convert {
-  public static toSpeadLoad(json: string): SpeedLoad {
+  public static toSpeedLoad(json: string): SpeedLoad {
     return JSON.parse(json);
   }
 
-  public static speadLoadToJson(value: SpeedLoad): string {
+  public static speedLoadToJson(value: SpeedLoad): string {
     return JSON.stringify(value);
   }
+}
+export interface SpeedLoadResult {
+  load: Data[],
+  spped: Data
 }
