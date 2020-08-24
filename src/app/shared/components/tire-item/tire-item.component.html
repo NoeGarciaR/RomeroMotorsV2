@@ -17,12 +17,12 @@
     </div>
     <div class="TireCard__content">
       <div class="col-left">
-        <!--<img src="assets/images/">-->
-        <div class="manufacturer">
-          Imagen Manufacturer
-          <!--<img [src]="url_path+'/'+manufacturer.image"  [alt]="manufacturer.value" />-->
+        <div *ngIf="manufacturer">
+          <div class="manufacturer">
+            <img [src]="url_path+'/'+manufacturer.image"  [alt]="manufacturer.value" />
+          </div>
+          <span class="model">{{ manufacturer.children[0].value }}</span>
         </div>
-        <span class="model">Valor de Manufacturer<!--{{ manufacturer.children[0].value }}--></span>
         <span class="description">{{ tire.desc }}</span>
 
         <span class="code">Código: {{ tire.sku }}</span>

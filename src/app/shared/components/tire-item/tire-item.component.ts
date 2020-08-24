@@ -16,13 +16,13 @@ import { VehicleTypeService } from '../../../core/services/vehicle-type.service'
   styleUrls: ["./tire-item.component.scss"]
 })
 export class TireItemComponent implements OnInit {
-  url_path = environment.baseURL_UPL;
+  public url_path = environment.baseURL_UPL;
   @Input("tire") public tire: Doc= null;
 
   public speedData: Data;
   public loadData: Data;
 
-  public manufacturer: ManufacturerData;
+  public manufacturer: ManufacturerData = null;
   public vehicleTypes: VehicleType[];
 
   public quantityFormControl: FormControl;
@@ -41,6 +41,11 @@ export class TireItemComponent implements OnInit {
         Validators.min(1),
         Validators.max(this.tire.stock)
       ]);
+      this._manufactures.get( this.tire.manufacturerId ).subscribe( (res: ManufacturerData ) => this.manufacturer = res );//( (res) => {
+      //console.log(this.manufacturer);
+        /*this.manufacturer = res;
+        console.log(this.manufacturer);
+      } );*/
       //console.log(this.tire);
       /*Obteneido datos de Speed y Load*/
       //this.loadData = this._speedLoad.searchLoadId( this.tire.loadIndexId[0] );//this.getLoad( this.tire.loadIndexId[0]);

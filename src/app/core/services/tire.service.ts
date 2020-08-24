@@ -14,13 +14,13 @@ export class TireService {
   private URL_TIRE = `${environment.baseURL}/product/tire`;
   constructor(private readonly _http: HttpClient) {}
 
-  public get(queryParams: Partial<Tire>): Observable<Tire[]> {
+  public get(queryParams: Partial<Tire>): Observable<Tire> {
     return this._http
       .get(`${this.URL_TIRE}`, { params: queryParams as any })
       .pipe(map((res: any) => res.data));
   }
 
-  public getTireOption( options: any ) {
+  public getTireOption( options: any ){
     const headers = new HttpHeaders({
       limit: '8',
       page: '1',
