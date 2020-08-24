@@ -149,7 +149,7 @@ padding: 0 25px;*/
 }
 
 .header-pc-3{
-  padding: 10px 0;
+  padding: 3px 0;
 }
 
 .icon {
@@ -222,4 +222,11 @@ padding: 0 25px;*/
 .jcb {
   display: flex;
   justify-content: space-between;
+}
+.noMargin {
+  margin: 0;
+}
+
+.align-items-center {
+  align-items: center;
 }
