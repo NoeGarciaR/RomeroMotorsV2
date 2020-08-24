@@ -23,7 +23,7 @@ export class TireItemComponent implements OnInit {
   public loadData: Data;
 
   public manufacturer: ManufacturerData = null;
-  public vehicleTypes: VehicleType[];
+  public vehicleTypes: DataVehicleType[] = null;
 
   public quantityFormControl: FormControl;
   constructor( public _speedLoad: SpeedLoadService,
@@ -42,6 +42,8 @@ export class TireItemComponent implements OnInit {
         Validators.max(this.tire.stock)
       ]);
       this._manufactures.get( this.tire.manufacturerId ).subscribe( (res: ManufacturerData ) => this.manufacturer = res );//( (res) => {
+      this._vehicleType.get( this.tire.vehicleTypeId ).subscribe( (res: DataVehicleType[]) => this.vehicleTypes = res );
+
       //console.log(this.manufacturer);
         /*this.manufacturer = res;
         console.log(this.manufacturer);

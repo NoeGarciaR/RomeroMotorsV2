@@ -5,8 +5,8 @@
 //   const vehicleType = Convert.toVehicleType(json);
 
 export interface VehicleType {
-  message:         string;
-  dataVehicleType: DataVehicleType[];
+  message: string;
+  data:    DataVehicleType[];
 }
 
 export interface DataVehicleType {

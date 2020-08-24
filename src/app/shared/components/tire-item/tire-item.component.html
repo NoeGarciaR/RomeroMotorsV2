@@ -26,13 +26,10 @@
         <span class="description">{{ tire.desc }}</span>
 
         <span class="code">Código: {{ tire.sku }}</span>
-        <div class="icon-container">
-          Imagenes de camioneta y carrito
-          <!--
+        <div class="icon-container" *ngIf="vehicleTypes">
           <ng-container *ngFor="let vehicle of vehicleTypes">
             <img [src]="url_path+'/'+vehicle.image"  [alt]="vehicle.id" class="mw-icon-20" />
           </ng-container>
-          -->
         </div>
       </div>
       <div class="col-right">
