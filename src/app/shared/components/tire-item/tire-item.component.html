@@ -32,26 +32,21 @@
           </ng-container>
         </div>
       </div>
-      <div class="col-right">
+      <div class="col-right" *ngIf="speedLoadResult">
         <span class="title-detail">Detalles:</span>
 
         <div class="content-detail">
           <div class="item-detail">
-            <span class="key">index</span>
-            <span class="value">Carga máxima: numero Kg</span>
-            <!--
-            <span class="key">{{ loadData.index }}</span>
-            <span class="value">Carga máxima: {{ loadData.value }} Kg</span>
-            -->
+            <!--<div *ngFor="let load of speedLoadResult.load">-->
+              <span class="key">88</span>
+              <span class="value">Carga máxima: {{ speedLoadResult.load[0].value }} Kg</span>
+              <br>
+            <!--</div>-->
           </div>
 
           <div class="item-detail">
-            <span class="key">##</span>
-            <span class="value">Velocidad máxima: numero  Km/h</span>
-            <!--
-            <span class="key">{{ speedData.index }}</span>
-            <span class="value">Velocidad máxima: {{ speedData.value }}  Km/h</span>
-            -->
+            <span class="key">88</span>
+            <span class="value">Velocidad máxima: {{ speedLoadResult.spped.value }}  Km/h</span>
           </div>
         </div>
 

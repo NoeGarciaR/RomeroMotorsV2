@@ -43,5 +43,74 @@
         </label>
       </div>
     </div>
+
+
+
+    <div class="title-content">
+      <h3 class="title-filtro" >Medidas</h3>
+      <button
+        class="btn-open-options"
+        (click)="toggleShowOptions()">
+        <mat-icon>
+          {{isShowOptions ? "arrow_drop_up" : "arrow_drop_down"}}
+        </mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="isShowOptions">
+      <div class="option">
+        <input type="checkbox">
+        <label>
+          255 <small>2</small>
+        </label>
+    </div>
   </div>
+
+
+    <div class="title-content">
+      <h3 class="title-filtro" >Perfil</h3>
+      <button
+        class="btn-open-options"
+        (click)="toggleShowOptions()">
+        <mat-icon>
+          {{isShowOptions ? "arrow_drop_up" : "arrow_drop_down"}}
+        </mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="isShowOptions">
+      <div class="option">
+        <input type="checkbox">
+        <label>
+          50 <small>24</small>
+        </label>
+      </div>
+      <div class="option">
+        <input type="checkbox">
+        <label>
+          55 <small>3</small>
+        </label>
+      </div>
+    </div>
+
+    <div class="title-content">
+      <h3 class="title-filtro" >Aro</h3>
+      <button
+        class="btn-open-options"
+        (click)="toggleShowOptions()">
+        <mat-icon>
+          {{isShowOptions ? "arrow_drop_up" : "arrow_drop_down"}}
+        </mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="isShowOptions">
+      <div class="option">
+        <input type="checkbox">
+        <label>
+          R18 <small>15</small>
+        </label>
+      </div>
+    </div>
+
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterContentChecked } from "@angular/core";
 import { Doc, Tire } from 'src/app/core/models/personalities/Tire.model';
-import { Data } from 'src/app/core/models/personalities/SpeedLoad.model';
+import { Data, SpeedLoadResult } from 'src/app/core/models/personalities/SpeedLoad.model';
 
 import { FormControl, Validators } from "@angular/forms";
 import { environment } from '../../../../environments/environment';
@@ -19,9 +19,7 @@ export class TireItemComponent implements OnInit {
   public url_path = environment.baseURL_UPL;
   @Input("tire") public tire: Doc= null;
 
-  public speedData: Data;
-  public loadData: Data;
-
+  public speedLoadResult: SpeedLoadResult = null;
   public manufacturer: ManufacturerData = null;
   public vehicleTypes: DataVehicleType[] = null;
 
@@ -43,6 +41,7 @@ export class TireItemComponent implements OnInit {
       ]);
       this._manufactures.get( this.tire.manufacturerId ).subscribe( (res: ManufacturerData ) => this.manufacturer = res );//( (res) => {
       this._vehicleType.get( this.tire.vehicleTypeId ).subscribe( (res: DataVehicleType[]) => this.vehicleTypes = res );
+      this._speedLoad.get( this.tire.loadIndexId, this.tire.speedIndexId ).subscribe( ( res: SpeedLoadResult ) => this.speedLoadResult = res );
 
       //console.log(this.manufacturer);
         /*this.manufacturer = res;
